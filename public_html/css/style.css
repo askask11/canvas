@@ -1,0 +1,379 @@
+/*Editor: Johnson Gao
+Date This Project Created:Dec 2019 
+Description Of This Class:This is the css stylesheet for canvas plugin.
+You may only use this website for personal study only!
+*/
+/* 
+    Created on : 2019-12-15, 0:50:37
+    Author     : Jianqing Gao
+*/
+
+
+/*font-family: 'Coming Soon', cursive
+font-family: 'Cabin Sketch', cursive;
+font-family: 'Ma Shan Zheng', cursive;*/
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Coming+Soon|Ma+Shan+Zheng&display=swap');
+@keyframes fadeout
+{
+     from
+    {
+        //initial state : opacity: 0;
+        opacity: 1;
+    }to
+    {
+        opacity: 0;//ending state: opacity: 1;
+    }
+}
+/*declears an "object" for animation
+For this effect, it should take 1 sec.*/
+@keyframes fadeEffect
+{
+    from
+    {
+        //initial state : opacity: 0;
+        opacity: 0;
+    }to
+    {
+        opacity: 1;//ending state: opacity: 1;
+    }
+}
+
+/*basic background*/
+#luckyBody
+{
+    background-image: url("../images/pink-clouds.jpg");
+    background-size: 100%;
+    background-repeat: repeat;
+    background-color: #ccffcc;
+    /*MARGIN*/
+    margin-left: auto;
+    margin-right: auto;
+    font-family:'Coming Soon', cursive;
+    
+}
+
+#luckyBody header
+{
+    text-align: center;
+}
+
+#inputArea
+{
+    margin:auto;
+    /*display: block;*/
+    /*text-align: center;*/
+}
+
+section header
+{display: block;}
+/*Parent - Child*/
+
+
+
+
+/*********************
+*************************
+Solid Functional settings
+*************************
+************************/
+
+
+/****** Buttton with arrow*********/
+
+/*Give a button arrow like*/
+.arrowbutton
+{
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.arrowbutton span
+{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.arrowbutton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+.arrowbutton:hover span {/*this part will take place when user hovers over it!*/
+    padding-right: 25px;
+}
+
+.arrowbutton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+/*         -----     */
+/********************  POP UP CLASSES  ***********************/
+/*         -----     */
+/*Hide/show the popup class*/
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+/*the pupi text decoration.*/
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/*define the entry of the pop up*/
+/*ENCAPUSULATE THE AREA WHERE TO SHOW POP UP!!!*/
+.popup
+{
+    position: relative;/*SO IT CAN SHOW UP!!!*/
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/*The area to be popped up*/
+.popupArea
+{
+    visibility: hidden;/*Hide the text*/
+    width: 688px;/*the width of the area*/
+    background-color: #555;/*bg color*/
+    color: #fff;/*txt color*/
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;/*overfly the button,set on top*/
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+    
+}
+
+
+
+
+/*less priority*/
+
+#msgSection
+{
+    /*display: none;*/
+/*    border-color: rosybrown;
+    border-style: double;*/
+    margin-left: 20%;
+    margin-right: 20%;
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 30px;
+}
+
+#title
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4%;
+    margin-bottom: 6%;  
+}
+#emoji100png
+{
+    width:64px;
+    height:64px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+}
+#rdstartitle
+{
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+#luckyCanvasImg
+{
+    height: 90px;
+}
+
+#dataStatus,#selectionArea,.centralized
+{
+    /*display: block;*/
+    margin: auto;
+    text-align: center;
+    
+    /*line-height: 4px;*/
+    /*text-align: center;*/
+}
+#dataStatus
+{
+    color:green;
+    margin-bottom: 5px;
+}
+
+#vpng
+{
+    width: 16px;
+}
+
+#gradeExpectInput
+{
+    width: 100%;
+}
+#delayInput,#delayInputContainer
+{
+    width:70px;
+}
+#inputTable
+{
+    text-align: center;
+    margin: auto;
+}
+#gradingSection
+{
+/*    margin-top: 100px;
+    margin-bottom: 100px;*/
+}
+#currentGrade
+{
+    font-size: 90px;
+    animation: fadeEffect;
+    animation-duration: 0.5s;
+    /*transform: translateX(-100%);/*shift to the left for all of it.*/
+    transition: transform 0.3s ease;/*take 0.3 s to */
+}
+#maxGrade
+{
+    font-size: 60px;
+}
+#goldenSlash
+{
+    width: 70px;
+    height: 129px;
+}
+#timeCountCountainer
+{
+    border-style: dotted;
+    border-width: 4px;
+    border-color: #00ff00;
+    background-color: #ccffcc;
+    float: left;
+    padding: 3px 3px 3px 3px;
+}
+
+#displayArea
+{
+    /*display: none;*/
+}
+#showLastDigitDiv
+{
+    border-width: 5px;
+    border-style: dotted;
+    border-color: #009900;
+    padding:10px;
+    margin-right: 100px;
+}
+
+#showAllGradesDiv
+{
+    border-width: 5px;
+    border-style: dotted;
+    border-color: #0000cc;
+    padding:10px;
+/*    border-image: url("images/borderimg.png");
+    border-image-repeat: stretch;*/
+   
+}
+
+#gradeControlPanel
+{
+    border-style: inset;
+    border-width: 5px;
+    border-color: #000066;
+}
+
+#rightAside
+{
+    float: right;
+}
+
+#leftAside
+{
+    float:left;
+}
+#soundSettingIcon
+{
+    cursor: pointer;
+}
+#soundSetting
+{
+    float: right;
+}
+
+.chineseArtFont
+{
+   font-family:  'Ma Shan Zheng', cursive;
+   
+}
+
+
+#gradeImage
+{
+    width:182px;
+    height:94px;
+}
+.movedImage
+{
+    transform: translateX(65px);
+    transition-duration: 0.3s;
+}
+#helpGrdExtIcon
+{
+    cursor: pointer;
+}
+
+/*priority*/
+
+
+
+.red
+{
+    color: red;
+}
+
+.fadedOut
+{
+    animation: fadeout;
+    animation-duration: 0.4s;
+    display: none;
+}
+
+.showBlock
+{
+    
+    animation: fadeEffect;
+    animation-duration: 0.4s;
+    display: block;
+}
+.right
+{
+    float:right;
+}
+

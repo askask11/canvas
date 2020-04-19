@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--Editor: Johnson Gao
+Date This Project Created: Dec 2019
+Description Of This Class: This receives data from canvas and re-assembled it into playable form.
+-->
+<html>
+    <head>
+        <title>Good Luck!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/animatedLineTextInput.css">
+        <link rel="stylesheet" type="text/css" href="animatedselect/css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src='animatedselect/js/index.js'></script>
+        <script src="canvasScript.js"></script>
+    </head>
+    <!--no onload on body-->
+    <body id="luckyBody" onload="form.f.init.register(); inputGradeBook();">
+        <header>
+            <div id="soundSetting">
+                <img src="images/soundicon16.svg" onclick="muteUnmuteClip();" id="soundSettingIcon" alt="sound image" title="If this does not work with your browser, please use the icon on the tab!">
+            </div>
+            <hgroup>
+                <h1 id="title">
+                    <img src="images/100emoji.png" alt="100" id="emoji100png"><img src='images/luckyCanvas.png' alt='the lucky canvas' id="luckyCanvasImg"><img src='images/rdstar64.svg' alt='the lucky canvas' id="rdstartitle">
+                </h1>
+                <h3 id="dataStatus">
+                    <img src="images/V.png" alt="V" id="vpng"> Your information has been successfully retrived from canvas!
+                </h3>
+                <h4 id="goodluckTitle">
+                    Good Luck!
+                </h4>
+            </hgroup>
+        </header>
+
+
+
+
+        <div id="inputArea">
+
+            <table cellspacing="15" id='inputTable'>
+                <tr>
+                    <!--Assignments Select-->
+                    <td>
+                        <label id="img_category_label" class="field" for="img_category" data-value="">
+                            <span>Select Assignment</span>
+                            <div id="assignmentsSelectBox"class="psuedo_select"name="img_category">
+                                <span class="selected" onchange="console.log('ni bian xin le .')"></span>
+                                <ul id="assignmentsSelectOptions"class="options">
+                                    <!--Assignments here-->
+                                </ul>
+                            </div>
+                        </label>
+                    </td>
+
+                    <td>
+                        <form>
+                            <!--Grade Expectation-->
+                            <label id="gradeExpectSelect" class="field" for="img_category" data-value="Major">
+                                <!--title here-->
+                                <span>Category</span>
+                                <div class="psuedo_select" name="img_category">
+                                    <span class="selected" >Major</span>
+                                    <ul class="options">
+                                        <!--Options here-->
+                                        <li class="option" data-value="Major">Major</li>
+                                        <li class="option" data-value="Minor">Minor</li>
+                                    </ul>
+                                </div>
+                            </label>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="centralized">
+                <tr>
+                    <td>
+                        <div class="popup">
+
+                            <p>Minimun Grade Expectation by % 
+                                <img src="images/wen16.svg" alt="?" onmouseover="showPopup('gradeExpectPopup')" id="helpGrdExtIcon"></p>
+                            <strong id='gradeExpectInputWarning' class="red"></strong>
+                            <div class="popupArea" id="gradeExpectPopup">
+                                <div class="right">
+                                    <strong  onclick="showPopup('gradeExpectPopup')">X</strong>
+                                </div>
+                                <p>
+                                    Please enter your expection for grade in the area.<strong>In Percentage</strong><br>
+                                    Ex. You expect 90%, then enter 90.<br>
+                                    Good(%) - The minimun grade you accept to consider as "good" for the selected assignment. Enter by percentage.<br>
+                                    Fine(%) - Lowest grade you can accept as "Fine";<br>
+                                    <img src="images/SCORE EX Range.png" alt="score ex range" title="score expectation range" class="centralized">
+                                </p>
+                            </div>
+                        </div>
+
+                    </td>
+                    <td>
+
+                        <div class="animated-text-input-container">
+                            <input type="text" id="goodGradeInput" required title="Minimun grade you can considered as 'Good'" value="90" onchange="isValidInputGradeExpect('goodGradeInput')"/>
+                            <label class="label-name"><span class="content-name">Good(%)</span></label>
+                        </div>
+
+                    </td>
+                    <td>
+                        <div class="animated-text-input-container">
+                            <input type="text" id="fineGradeInput" required title="" value="85" onchange="isValidInputGradeExpect('fineGradeInput')"/>
+                            <label class="label-name"><span class="content-name">Fine(%)</span></label>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class='animated-text-input-container centralized' id='delayInputContainer' >
+                <input type='number' id='delayInput' required title='If you perfer to show your grade with countdown, please enter the delay time in sec'>
+                <label class='label-name'><span class='content-name'>
+                        Delay(s)
+                    </span></label>
+            </div>
+
+
+            <div class="centralized">
+                <button class="arrowbutton" onclick="readyShowGrade();">
+                    <span>
+                        I'm Ready! Go
+                    </span>
+                </button>
+            </div>
+
+        </div>
+
+        <div id="displayArea" class="fadedOut">
+
+            <div id="timeCountCountainer">
+                Time Remaining <strong class="red" id="timeCount"></strong> s;
+            </div>
+
+            <br>
+
+            <br>
+            <section id="gradingSection" class="centralized">
+                <h4>
+                    Your Grade:
+                </h4>
+
+                <table class="centralized">
+                    <tr>
+                        <td>
+                            <!--Grade-->
+                            <span id="currentGrade">
+                                <img src="images/wenwenwen.jpg" id="gradeImage" alt="???">
+                            </span>
+                        </td>
+                        <td>
+                            <!--slash-->
+                            <img src="images/slash.png" alt="/" id="goldenSlash">
+                        </td>
+                        <td>
+                            <!--max grade-->
+                            <span id="maxGrade">
+                                Unknown
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+
+            </section>
+
+            <section class="centralized" id="gradeControlPanel">
+                <h4>
+                    Now, You can either...
+                </h4>
+                <table class="centralized" >
+                    <tr>
+                        <td>
+                            <div id="showLastDigitDiv">
+                                <p><img src="images/smstar.svg" alt="">Please show me the grade digit-by-digit</p>
+                                <button class="arrowbutton centralized" onclick="showLastDigit();this.classList.toggle('fadedOut'); //hide">
+                                    <span> Show Last Digit</span>
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="showAllGradesDiv">
+                                <img src="images/smstar.svg" alt=""> <p id="showAllText"><strong class="red" >
+                                        NO FEAR!!
+                                    </strong> show me ALL!!</p>
+                                <button class="arrowbutton centralized" onclick="showAllGrade();this.classList.toggle('fadedOut');//hide">
+                                    <span>Show All</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </section>
+
+
+            <table class="centralized">
+                <tr>
+                    <td>
+                        <div id="leftAside">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="centralized fadedOut" id="msgSection">
+
+                        </div>
+                    </td>
+                    <td>
+                        <div id="rightAside">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+
+
+
+
+
+
+        </div>
+
+        <!--<footer align="center" style="font-size:25px"><br><br> <h6>&copy; <script>document.write(new Date().getFullYear());</script> Jianqing Gao️The Lucky Canvas 1<sup>st</sup> edition</h6> 
+        </footer>-->
+    </body>
+</html>

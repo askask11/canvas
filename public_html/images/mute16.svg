@@ -1,0 +1,15 @@
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" id="svg9" height="16" width="16" version="1.0" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 44" style="font-size: 16px; color: rgb(212, 35, 122);">
+  <metadata id="metadata13" style="fill: rgb(212, 35, 122);">
+    <rdf:rdf style="fill: rgb(212, 35, 122);">
+      <cc:work rdf:about="" style="fill: rgb(212, 35, 122);">
+        <dc:format style="fill: rgb(212, 35, 122);">image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" style="fill: rgb(212, 35, 122);"></dc:type>
+      </cc:work>
+    </rdf:rdf>
+  </metadata>
+  <defs id="defs3" style="fill: rgb(212, 35, 122);">
+    <pattern y="0" x="0" height="6" width="6" patternUnits="userSpaceOnUse" id="EMFhbasepattern" style="fill: rgb(212, 35, 122);"></pattern>
+  </defs>
+  <path id="path5" d="  M 27.976504,12.264771   L 32.104842,12.264771   L 37.275284,17.435214   L 42.485808,12.264771   L 46.574065,12.264771   L 46.574065,16.353028   L 41.403622,21.48339   L 46.574065,26.653832   L 46.574065,30.702008   L 42.485808,30.702008   L 37.275284,25.571647   L 32.104842,30.702008   L 27.976504,30.702008   L 27.976504,26.653832   L 33.187027,21.48339   L 27.976504,16.353028   L 27.976504,12.264771   z " style="fill: rgb(212, 35, 122); fill-rule: evenodd; fill-opacity: 1; stroke: none;"></path>
+  <path id="path7" d="  M 20.200799,0.080161902   L 20.481366,0.12024285   L 20.802014,0.20040476   L 21.08258,0.32064761   L 21.282985,0.52105236   L 21.48339,0.76153807   L 21.603633,1.0421047   L 21.723875,1.3226714   L 21.723875,1.643319   L 21.723875,41.523865   L 21.723875,41.804432   L 21.603633,42.12508   L 21.48339,42.365565   L 21.282985,42.606051   L 21.08258,42.806456   L 20.802014,42.926699   L 20.481366,43.046941   L 20.200799,43.046941   L 19.920233,43.00686   L 19.599585,42.926699   L 19.359099,42.806456   L 19.118614,42.606051   L 7.1744902,30.78217   L 1.643319,30.78217   L 1.2825904,30.742089   L 0.96194282,30.621847   L 0.68137617,30.421442   L 0.44089046,30.221037   L 0.24048571,29.94047   L 0.12024285,29.619823   L 0.080161902,29.259094   L 0.080161902,13.90809   L 0.12024285,13.547361   L 0.24048571,13.226714   L 0.44089046,12.946147   L 0.68137617,12.705661   L 0.96194282,12.545338   L 1.2825904,12.385014   L 1.643319,12.385014   L 7.1744902,12.385014   L 19.118614,0.52105236   L 19.359099,0.32064761   L 19.599585,0.20040476   L 19.880152,0.12024285   L 20.200799,0.080161902   z " style="fill: rgb(212, 35, 122); fill-rule: evenodd; fill-opacity: 1; stroke: none;"></path>
+</svg>
