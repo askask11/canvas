@@ -412,7 +412,17 @@ function inputGradeBook()
     // document.getElementById('assignmentsSelectBox').style.length = selectWidth;
 
     //write weights
-//    
+    //
+    //
+    //Read from storage
+    console.log('local storage');
+    document.getElementById('goodGradeInput').value = window.localStorage.getItem('goodGrade');
+    document.getElementById('fineGradeInput').value = window.localStorage.getItem('okGrade');
+    document.getElementById('delayInput').value = window.localStorage.getItem("delay");
+    window.localStorage.removeItem('goodGrade');
+    window.localStorage.removeItem('okGrade');
+    window.localStorage.removeItem("delay");
+    
 }
 
 /**
@@ -774,7 +784,7 @@ function gradeB_Action()
     if (userName === "Di SUN")
     {
         massage += "<span class='chineseArtFont'>加油小太阳！下次你一定能做的更好！</span>";
-        massage += "<img src='images/bbycheer.gif title='加油sunny！'>";
+        massage += "<img src='images/bbycheer.gif' title='加油sunny！'>";
     } else
     {
         massage += "If you are not satisified with your current grade, don't be too sad next time aim for an A! People grow step-by-step";
@@ -796,7 +806,7 @@ function gradeB_Action()
 
 const FOLDER_BG_C_F = "images/CF bg/";
 
-const IMGSRCS_BG_C_F = ["bluabs.jpg", "bluabs2.jpg", "brown.jpg", "grey.jpg", "greyMountain.jpg", "greyWater.jpg", "greyWood.jpg", "shock.jpg",
+const IMGSRCS_BG_C_F = ["bluabs.jpg", "bluabs2.jpg", "brown.jpg", "grey.jpg", "greyMountain.jpg", "greyWater.jpg", "greywood.jpg", "shock.jpg",
     "shock2.jpg", "shock3.jpg", "shock4.jpg", "wood.jpg"];
 
 const SRCSET_BGMUSIC_C_F = [/*"audio/God Father.mp3","audio/Songs From A Secret Garden.mp3",*/"audio/God Father 2.mp3"];
