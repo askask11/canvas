@@ -124,7 +124,7 @@ class DisplayImage
 
 
 const BACKGROUND_MUSIC = new Audio();
-const CLIP = new Audio();
+const CLIP = document.createElement("audio");
 const SRC_CLIP_TICK = "audio/tick.mp3";
 const SRC_CLIP_SLEGHRIDEMIAO = "audio/slegh-ridemiao.wav";
 const SRC_NYANCAT = "audio/nyancat.wav";
@@ -135,6 +135,8 @@ const SRC_CLICKSOUND = "audio/Click Button 2.wav";
 const SRC_TINY_BUTTON_PUSH = "audio/Tiny Button Push.wav";
 const SRC_WATERPRESS = "audio/waterPress1.wav";
 const SRC_ABOVEAVG_FOLDER = "images/above average/";
+const SRCSET_EFFECTS = [SRC_CLIP_TICK, SRC_CLIP_SLEGHRIDEMIAO,
+    SRC_NYANCAT, SRC_KISS, SRC_APPLUSE, SRC_COUNTDOWN1S, SRC_CLICKSOUND, SRC_TINY_BUTTON_PUSH, SRC_WATERPRESS];
 
 const SRCSET_CHEERMUSIC_A = [SRC_NYANCAT, SRC_CLIP_SLEGHRIDEMIAO];
 const SRCSET_CHEERCLIP_A = [SRC_APPLUSE];
@@ -416,13 +418,13 @@ function inputGradeBook()
     //
     //Read from storage
     console.log('local storage');
-    document.getElementById('goodGradeInput').value = window.localStorage.getItem('goodGrade');
-    document.getElementById('fineGradeInput').value = window.localStorage.getItem('okGrade');
-    document.getElementById('delayInput').value = window.localStorage.getItem("delay");
-    window.localStorage.removeItem('goodGrade');
-    window.localStorage.removeItem('okGrade');
-    window.localStorage.removeItem("delay");
-    
+    /*document.getElementById('goodGradeInput').value = window.localStorage.getItem('goodGrade');
+     document.getElementById('fineGradeInput').value = window.localStorage.getItem('okGrade');
+     document.getElementById('delayInput').value = window.localStorage.getItem("delay");
+     window.localStorage.removeItem('goodGrade');
+     window.localStorage.removeItem('okGrade');
+     window.localStorage.removeItem("delay");*/
+
 }
 
 /**
@@ -750,6 +752,7 @@ const IMG_TITLES_B
             new DisplayImage(GOOD_JOB_B_FOLDER + "goodjob7.jpg")];
 const SRCSET_BGMUSIC_B = ["audio/Apologize.mp3", "audio/alwaysWM.mp3", "audio/Annie's Dream.mp3"];
 
+
 /*
  * Call this when user get an B.
  * @returns {undefined}
@@ -901,7 +904,7 @@ function playClip(src)
 {
     if (doPlayClip)
     {
-        CLIP.src = src;
+        CLIP.src = "https://xeduo-img1.oss-accelerate.aliyuncs.com/"+src;
         CLIP.play();
     }
 }
@@ -915,7 +918,7 @@ function playMusic(src)
 {
     if (doPlayClip)
     {
-        BACKGROUND_MUSIC.src = src;
+        BACKGROUND_MUSIC.src = "https://xeduo-img1.oss-accelerate.aliyuncs.com/"+src;
         BACKGROUND_MUSIC.play();
     }
 }
@@ -939,3 +942,4 @@ function showPopup(popupToShow)
     var popup = document.getElementById(popupToShow);//get the id of the popup to show
     popup.classList.toggle("show");//add an "show" to the end of the class list if it is there, otherwise cancel the class.
 }
+
